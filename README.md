@@ -2272,10 +2272,9 @@ button,
     border-top: 0;
     margin-top: 0;
     padding-top: 0; }
-	
-	</style>
+</style>
  
- <!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
 	html5up.net | @ajlkn
