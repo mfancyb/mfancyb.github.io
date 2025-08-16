@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signature Digital Presence™ — Luxury Web Design for Industry Leaders</title>
+  <meta name="description" content="An exclusive, concierge-level web design experience for industry leaders. Bespoke, editorial-grade websites that signal status and drive results. Starting at $25,000.">
+  <meta property="og:title" content="Signature Digital Presence™ — Luxury Web Design" />
+  <meta property="og:description" content="Bespoke, editorial-grade websites for affluent brands. Limited capacity. Starting at $25,000." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1600&auto=format&fit=crop" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0a0a; /* near-black */
+      --ink: #f5f5f5; /* off-white text */
+      --muted: #bdbdbd; /* soft gray */
+      --line: rgba(255,255,255,0.1);
+      --accent: #ffffff; /* minimal color usage */
+      --container: 1200px;
+      --radius: 16px;
+    }
+
+    /* CSS Reset (modern, minimal) */
+    *,*::before,*::after{box-sizing:border-box}
+    *{margin:0}
+    html:focus-within{scroll-behavior:smooth}
+    body{min-height:100vh;text-rendering:optimizeLegibility}
+    img,svg,video,canvas{max-width:100%;display:block}
+    input,button,textarea,select{font:inherit}
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 24px; }
+    .stack { display: grid; gap: 24px; }
+
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: linear-gradient(180deg, rgba(10,10,10,0.9), rgba(10,10,10,0.6) 60%, rgba(10,10,10,0));
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(4px);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding:16px 0; }
+    .brand { display:flex; align-items:center; gap:12px; letter-spacing:0.08em; font-weight:600; }
+    .brand-mark { width:28px; height:28px; border-radius:50%; border:1px solid var(--ink); display:grid; place-items:center; font-size:12px; }
+    .nav a { color: var(--ink); text-decoration:none; opacity:0.9 }
+    .nav a:hover { opacity:1 }
+    .pill { border:1px solid var(--line); padding:10px 16px; border-radius:999px; font-size:14px; }
+
+    /* Hero */
+    .hero {
+      position:relative; min-height: 92vh; display:grid; align-items:end; isolation:isolate;
+      background: radial-gradient(1200px 600px at 80% 10%, rgba(255,255,255,0.06), transparent),
+                  radial-gradient(800px 400px at 10% 20%, rgba(255,255,255,0.04), transparent),
+                  #0a0a0a;
+    }
+    .hero::before { /* Background Image */
+      content:""; position:absolute; inset:0; z-index:-2;
+      background-image: url('https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&w=2060&auto=format&fit=crop');
+      background-size: cover; background-position: center; opacity:0.25; filter:grayscale(100%) contrast(1.05);
+    }
+    .hero::after { /* Gradient overlay */
+      content:""; position:absolute; inset:0; z-index:-1;
+      background: linear-gradient(180deg, rgba(10,10,10,0.5), rgba(10,10,10,0.8) 40%, rgba(10,10,10,1));
+    }
+    .eyebrow { text-transform: uppercase; letter-spacing: .18em; color: var(--muted); font-size: 12px; }
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 600; line-height: 1.1;
+      font-size: clamp(40px, 6vw, 76px);
+    }
+    .lede { color: #e4e4e4; font-size: clamp(16px, 1.4vw, 20px); max-width: 52ch; }
+    .hero-cta { display:flex; gap:12px; flex-wrap:wrap; margin-top: 8px; }
+    .btn { padding:14px 20px; border-radius:999px; border:1px solid var(--ink); background:transparent; color:var(--ink); text-decoration:none; display:inline-flex; align-items:center; gap:10px; }
+    .btn.primary { background: var(--ink); color: #0a0a0a; border-color: transparent; }
+    .btn:hover{ transform: translateY(-1px); }
+
+    /* Section shells */
+    section { padding: 96px 0; border-top:1px solid var(--line); }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom: 32px; }
+    .section-title { font-family: 'Playfair Display', Georgia, serif; font-weight:600; font-size: clamp(28px, 3vw, 42px); line-height:1.2 }
+    .kicker { color: var(--muted); max-width: 70ch; }
+
+    /* Trust strip */
+    .trust { display:grid; grid-template-columns: repeat(5, 1fr); gap: 24px; opacity: 0.8; }
+    .trust img { filter: grayscale(100%) contrast(1.2); opacity:0.8 }
+
+    /* Showcase grid */
+    .grid { display:grid; gap:24px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media (max-width: 980px){ .grid.cols-3 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px){ .grid.cols-3 { grid-template-columns: 1fr; } }
+
+    .card { position:relative; overflow:hidden; border-radius: var(--radius); border:1px solid var(--line); background:#0f0f0f; }
+    .card img { width:100%; height: 360px; object-fit: cover; filter: grayscale(100%); transition: transform .6s ease; }
+    .card:hover img { transform: scale(1.05); }
+    .card .cap { position:absolute; inset:auto 0 0 0; padding:16px 18px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.7)); }
+    .cap h3 { font-weight:600; letter-spacing:0.02em }
+
+    /* Package block */
+    .package { display:grid; grid-template-columns: 1.2fr .8fr; gap: 40px; }
+    @media (max-width: 900px){ .package { grid-template-columns: 1fr; } }
+    .bullets { display:grid; gap:14px; }
+    .bullets li { list-style: none; padding-left:28px; position:relative; }
+    .bullets li::before { content:""; position:absolute; left:0; top:10px; width:10px; height:10px; border-radius:50%; border:1px solid var(--ink); }
+    .price { font-size: 14px; color: var(--muted); }
+    .spec-card { border:1px solid var(--line); border-radius: var(--radius); padding:24px; display:grid; gap:10px; background: #0d0d0d; }
+
+    /* Process */
+    .steps { display:grid; grid-template-columns: repeat(4, 1fr); gap:24px; counter-reset: step; }
+    @media (max-width: 980px){ .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px){ .steps { grid-template-columns: 1fr; } }
+    .step { border:1px solid var(--line); border-radius: var(--radius); padding:24px; background:#0d0d0d; position:relative; }
+    .step::before { counter-increment: step; content: counter(step, decimal-leading-zero); position:absolute; top:16px; right:16px; font-family: 'Playfair Display', Georgia, serif; opacity:.2; font-size: 44px; }
+
+    /* Testimonials */
+    .quotes { display:grid; grid-template-columns: 1fr 1fr; gap:24px; }
+    @media (max-width: 900px){ .quotes { grid-template-columns: 1fr; } }
+    blockquote { border:1px solid var(--line); border-radius: var(--radius); padding:28px; background:#0d0d0d; font-size: clamp(16px, 1.2vw, 18px); }
+    blockquote footer { margin-top: 14px; color: var(--muted); font-size: 14px }
+
+    /* CTA */
+    .cta { position:relative; overflow:hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #0d0d0d; }
+    .cta::before { content:""; position:absolute; inset: -20% -10%; background: radial-gradient(800px 300px at 80% 0%, rgba(255,255,255,0.06), transparent), radial-gradient(600px 200px at 20% 100%, rgba(255,255,255,0.05), transparent); filter: blur(10px); }
+    .cta-inner { position:relative; z-index:1; }
+
+    form { display:grid; gap:16px; max-width: 640px; }
+    .field { display:grid; gap:8px; }
+    label { font-size: 14px; color: var(--muted); }
+    input[type="text"], input[type="email"], textarea, select {
+      padding:14px 16px; border-radius: 12px; border:1px solid var(--line); background:#101010; color:var(--ink);
+    }
+    textarea { min-height: 120px; resize: vertical; }
+
+    /* Footer */
+    footer { padding: 64px 0; border-top:1px solid var(--line); color: var(--muted); font-size:14px }
+
+    /* Reveal animation */
+    .reveal { opacity:0; transform: translateY(10px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity:1; transform: translateY(0) }
+
+    /* Focus ring */
+    :focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header aria-label="Main Navigation">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Brand home">
+        <span class="brand-mark" aria-hidden="true">Σ</span>
+        <span>Signature Studio</span>
+      </a>
+      <nav aria-label="Primary">
+        <a class="pill" href="#work">Work</a>
+        <a class="pill" href="#package">Signature Package</a>
+        <a class="pill" href="#process">Process</a>
+        <a class="pill" href="#consult">Private Consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="top" class="hero">
+    <div class="container" style="padding: 18vh 0 10vh;">
+      <div class="stack" style="gap: 18px; max-width: 920px;">
+        <div class="eyebrow">Bespoke · Editorial · Performance</div>
+        <h1>Signature Digital Presence™ for Leaders Who Set the Standard.</h1>
+        <p class="lede">We craft rare, editorial-grade websites for affluent brands. Minimal, confident, and precise — a digital flagship that signals status and converts attention into revenue.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#consult">Request Private Consultation</a>
+          <a class="btn" href="#work">See Selected Work</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Trust strip -->
+  <section aria-label="Selected clients & features">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Trusted by discerning teams</h2>
+        <p class="kicker">We partner with founders, creatives, and firms who value restraint, clarity, and results.</p>
+      </div>
+      <div class="trust" role="list" aria-label="Client logos">
+        <img alt="Monochrome architectural logo" loading="lazy" src="https://images.unsplash.com/photo-1483721310020-03333e577078?q=80&w=600&auto=format&fit=crop"/>
+        <img alt="Minimalist wordmark" loading="lazy" src="https://images.unsplash.com/photo-1475139441338-693e7dbe20b6?q=80&w=600&auto=format&fit=crop"/>
+        <img alt="Editorial masthead" loading="lazy" src="https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?q=80&w=600&auto=format&fit=crop"/>
+        <img alt="Luxury brand mark" loading="lazy" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=600&auto=format&fit=crop"/>
+        <img alt="Boutique studio logo" loading="lazy" src="https://images.unsplash.com/photo-1503095396549-807759245b35?q=80&w=600&auto=format&fit=crop"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Showcase -->
+  <section id="work" aria-label="Selected work">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Selected Work</h2>
+        <p class="kicker">A restrained, high-contrast aesthetic. Precision typesetting. Intentional motion. Always performance-first.</p>
+      </div>
+      <div class="grid cols-3">
+        <article class="card reveal" aria-label="Case study 1">
+          <img alt="Editorial website mockup, high contrast" loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"/>
+          <div class="cap">
+            <h3>Maison de Lune — Editorial Commerce</h3>
+            <p class="kicker">+184% revenue in 90 days</p>
+          </div>
+        </article>
+        <article class="card reveal" aria-label="Case study 2">
+          <img alt="Minimal portfolio grid in black and white" loading="lazy" src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop"/>
+          <div class="cap">
+            <h3>Archer & Co. — Boutique Advisory</h3>
+            <p class="kicker">Positioned for tier-one clientele</p>
+          </div>
+        </article>
+        <article class="card reveal" aria-label="Case study 3">
+          <img alt="Luxury architecture homepage" loading="lazy" src="https://images.unsplash.com/photo-1466400413063-9b983af4ed2f?q=80&w=1200&auto=format&fit=crop"/>
+          <div class="cap">
+            <h3>Linea Studio — Architectural Practice</h3>
+            <p class="kicker">A flagship presence that speaks softly</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signature Package -->
+  <section id="package" aria-label="Signature package">
+    <div class="container package">
+      <div class="stack" style="gap: 18px;">
+        <h2 class="section-title">The Signature Digital Presence™</h2>
+        <p class="kicker">We design rare, high-performing websites that signal prestige and convert. Limited capacity. White-glove experience end‑to‑end.</p>
+        <ul class="bullets">
+          <li>Bespoke visual system — no templates, ever</li>
+          <li>Executive workshop & brand positioning</li>
+          <li>Conversion architecture & analytics</li>
+          <li>Custom interactions with motion restraint</li>
+          <li>Concierge launch & 12 months of VIP care</li>
+        </ul>
+        <p class="price">Investment: <strong>Starting at $25,000</strong></p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#consult">Request Private Consultation</a>
+          <a class="btn" href="#process">See Our Process</a>
+        </div>
+      </div>
+      <aside class="stack" style="gap: 16px;">
+        <div class="spec-card">
+          <h3 style="font-weight:600">What you receive</h3>
+          <p class="kicker">A digital flagship: editorial design, performance engineering, and persuasive storytelling in one disciplined build.</p>
+        </div>
+        <div class="spec-card">
+          <h3 style="font-weight:600">Why it works</h3>
+          <p class="kicker">Price is a signal. Your site should look, feel, and behave like a best‑in‑class luxury product — fast, quiet, confident.</p>
+        </div>
+        <div class="spec-card">
+          <h3 style="font-weight:600">Capacity</h3>
+          <p class="kicker">We accept only 6 Signature builds per year to preserve craft and attention.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" aria-label="Process">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">A disciplined, four‑part process</h2>
+        <p class="kicker">Deep discovery. Editorial design. Precision build. White‑glove launch.</p>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Discovery & Positioning</h3>
+          <p class="kicker">Executive workshop, audience psychology, competitive clarity.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Bespoke Editorial Design</h3>
+          <p class="kicker">Custom system, typography, art direction, motion language.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Performance Engineering</h3>
+          <p class="kicker">Accessibility, speed, analytics, conversion architecture.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Concierge Launch</h3>
+          <p class="kicker">Private preview, handover, 12‑month VIP care.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section aria-label="Testimonials">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Discrete praise</h2>
+        <p class="kicker">Our clients value privacy. A few notes we can share, with permission.</p>
+      </div>
+      <div class="quotes">
+        <blockquote class="reveal">
+          “It’s the first time our website feels like our product: quiet confidence. We closed a $2.1M engagement two weeks after launch.”
+          <footer>— Managing Partner, Boutique Advisory</footer>
+        </blockquote>
+        <blockquote class="reveal">
+          “The restraint is the luxury. Nothing tries too hard, yet everything performs. Leads up 3.2× in 60 days.”
+          <footer>— Founder, Direct‑to‑Consumer Label</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Consultation CTA -->
+  <section id="consult" aria-label="Private consultation">
+    <div class="container cta">
+      <div class="cta-inner" style="padding: 48px;">
+        <div class="section-head" style="align-items:center;">
+          <h2 class="section-title">Request a private consultation</h2>
+          <p class="kicker">We work with a select number of clients each year. If accepted, we’ll begin with a confidential discovery call.</p>
+        </div>
+        <form aria-label="Consultation form" onsubmit="event.preventDefault(); alert('Thank you — we will be in touch shortly.');">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jane Doe" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" placeholder="Lumière Atelier" />
+          </div>
+          <div class="field">
+            <label for="budget">Estimated budget</label>
+            <select id="budget" name="budget" required>
+              <option value="" disabled selected>Select a range</option>
+              <option>$25,000 – $40,000</option>
+              <option>$40,000 – $60,000</option>
+              <option>$60,000+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="notes">Notes (optional)</label>
+            <textarea id="notes" name="notes" placeholder="Tell us about your brand and goals."></textarea>
+          </div>
+          <div>
+            <button class="btn primary" type="submit">Request Consultation</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap;">
+      <div>© <span id="year"></span> Signature Studio. All rights reserved.</div>
+      <div>Privacy · Terms · <a href="#" style="color:inherit; text-decoration:underline;">Email</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Intersection Observer for reveal-on-scroll
+    const observer = ('IntersectionObserver' in window) && new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          observer && observer.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.18 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer && observer.observe(el));
+
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.querySelectorAll('*').forEach(el => el.style.scrollBehavior = 'auto');
+    }
+  </script>
+</body>
+</html>
